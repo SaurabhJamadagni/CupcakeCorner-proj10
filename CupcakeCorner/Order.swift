@@ -37,6 +37,9 @@ class Order: ObservableObject, Codable {
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
             return false
         }
+        if name.replacingOccurrences(of: " ", with: "").isEmpty || streetAddress.replacingOccurrences(of: " ", with: "").isEmpty || city.replacingOccurrences(of: " ", with: "").isEmpty || zip.replacingOccurrences(of: " ", with: "").isEmpty {
+            return false
+        }
         return true
     }
     
